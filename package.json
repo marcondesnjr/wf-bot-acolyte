@@ -1,0 +1,11 @@
+{
+  "name": "acolyte-bot",
+  "version": "1.0.0",
+  "description": "Aviso de acolyte",
+  "main": "bot.js",
+  "author": "Moonraion",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "winston": "^2.4.0"
+  }
+}

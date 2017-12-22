@@ -25,7 +25,39 @@ request.get('http://content.warframe.com/dynamic/worldState.php', function (erro
             if(status != statusAnterior){
                 console.log("Diferente");            
                 var channel = bot.channels.get('393626375829061642');
-                channel.sendMessage("<@&393660703484936192>\n"+ws.persistentEnemies[0].toString());
+
+
+                var embedp = {
+                  "content": "<@&393660703484936192>",
+                  "embed": {
+                    "title": "O acolyte ".concat(status?"apareceu!":"desapareceu!"),
+                    "description": "Ultima vez visto em: "+ ws.persistentEnemies[0].lastDiscoveredAt,
+                    "color": 2327226,
+                    "thumbnail": {
+                      "url": "https://vignette.wikia.nocookie.net/warframe/images/e/ec/StrikerAcolyte.png"
+                    },
+                    "author": {
+                      "name": bot.user.username,
+                      "icon_url": bot.user.avatarURL
+                    }
+                  }
+                }
+
+
+                var embed = new Discord.RichEmbed()
+                    .setTitle("O acolyte ".concat(status?"apareceu!":"desapareceu!"))
+                    .setAuthor(bot.user.username, bot.user.avatarURL)
+
+                    .setColor(0x00AE86)
+                    .setThumbnail("https://vignette.wikia.nocookie.net/warframe/images/e/ec/StrikerAcolyte.png")
+                    .setDescription("Ultima vez visto em: "+ ws.persistentEnemies[0].lastDiscoveredAt)
+                    .setTimestamp();
+
+
+
+
+                channel.send("<@&393660703484936192>",embedp);
+                
                 statusAnterior = status;
             }else{
 

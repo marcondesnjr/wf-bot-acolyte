@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const TOKEN = process.env.TOKEN;
 const WorldState = require('warframe-worldstate-parser');
+const worldstateData = require('warframe-worldstate-data');
 
 var statusAnterior = false;
 
@@ -39,9 +40,4 @@ request.get('http://content.warframe.com/dynamic/worldState.php', function (erro
     }
 });
 }, 30000);
-
-
-setInterval(() => {
- http.get('http://discordjs-heroku.herokuapp.com');
-}, 900000);
 
